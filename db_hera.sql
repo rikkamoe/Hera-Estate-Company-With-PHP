@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2021 at 03:08 PM
+-- Generation Time: Jun 10, 2021 at 09:34 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -74,16 +74,6 @@ CREATE TABLE `tb_management_agent` (
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tb_management_agent`
---
-
-INSERT INTO `tb_management_agent` (`id_management_agent`, `id_agent_management_agent`, `id_properties_management_agent`, `status_management_agent`, `created_at`, `updated_at`) VALUES
-(10, 19, 100, 2, '2021-06-07 23:12:52', '2021-06-07 23:14:54'),
-(11, 19, 103, 2, '2021-06-07 23:12:57', '2021-06-07 23:14:49'),
-(12, 19, 102, 2, '2021-06-08 11:41:00', '2021-06-08 11:41:59'),
-(14, 19, 104, 2, '2021-06-08 21:55:45', '2021-06-08 22:01:37');
-
 -- --------------------------------------------------------
 
 --
@@ -98,16 +88,6 @@ CREATE TABLE `tb_management_customer` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tb_management_customer`
---
-
-INSERT INTO `tb_management_customer` (`id_management_customer`, `id_management_agent_management_customer`, `id_customer_management_customer`, `status_management_customer`, `created_at`, `updated_at`) VALUES
-(9, 11, 20, 1, '2021-06-07 23:14:49', '2021-06-07 23:14:49'),
-(10, 10, 20, 1, '2021-06-07 23:14:54', '2021-06-07 23:14:54'),
-(11, 12, 21, 1, '2021-06-08 11:41:59', '2021-06-08 11:41:59'),
-(12, 14, 20, 1, '2021-06-08 22:01:37', '2021-06-08 22:01:37');
 
 -- --------------------------------------------------------
 
@@ -134,18 +114,6 @@ CREATE TABLE `tb_properties` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `tb_properties`
---
-
-INSERT INTO `tb_properties` (`id_properties`, `name_properties`, `type`, `bedroom`, `toilet`, `pool`, `location`, `description`, `document`, `production_year`, `owner`, `img`, `price`, `status`, `created_at`, `updated_at`) VALUES
-(100, 'Harajuku', 'Minimalis Class (20 x 10)', 2, 3, 2, 'seoul', 'asasasas', 'sasasasa', '2015', 'I Gede Bayu Widiastika', 'banner.jpg', '300', '3', '2021-06-07 14:33:01', '2021-06-07 15:14:54'),
-(101, 'Hera Place', 'Minimalis Class (20 x 10)', 2, 3, 1, 'seoul', 'aaaaaaaaa', 'aaaaaaaaaa', '2015', 'I Gede Bayu Widiastika', 'banner.jpg', NULL, '1', '2021-06-07 14:33:23', '2021-06-07 14:34:26'),
-(102, 'Hera Kids', 'Minimalis Class (20 x 10)', 2, 3, 1, 'seoul', 'aaaaaaaaaa', 'aaaaaaaaaa', '2015', 'I Gede Bayu Widiastika', 'banner.jpg', '325', '3', '2021-06-07 14:33:50', '2021-06-08 03:41:59'),
-(103, 'Sakuta House', 'Minimalis Class (20 x 10)', 2, 3, 1, 'seoul', 'aaaaaaaaaa', 'aaaaaaa', '2015', 'I Gede Bayu Widiastika', 'banner.jpg', '350', '3', '2021-06-07 14:34:15', '2021-06-07 15:14:49'),
-(104, 'Hora Hora', 'Minimalis Class (20 x 10)', 2, 2, 2, 'seoul', 'AAAAAAAAAA', 'AAAAAAAAAA', '2015', 'I Gede Bayu Widiastika', 'banner.jpg', '310', '3', '2021-06-07 14:59:19', '2021-06-08 14:01:37'),
-(105, 'House Premium', 'Minimalis Class (20 x 10)', 2, 3, 1, 'seoul', 'AAAAAA', 'AAAAAAAAAAAAA', '2015', 'I Gede Bayu Widiastika', 'banner.jpg', NULL, '0', '2021-06-07 14:59:40', '2021-06-07 14:59:40');
-
 -- --------------------------------------------------------
 
 --
@@ -162,16 +130,6 @@ CREATE TABLE `tb_transaction` (
   `created_at_transaction` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tb_transaction`
---
-
-INSERT INTO `tb_transaction` (`id_transaction`, `id_validate`, `id_properties`, `id_agent`, `price_transaction`, `status_transaction`, `created_at_transaction`, `updated_at`) VALUES
-(21, 41, 100, 19, '300', 1, '2021-06-07 23:12:13', '2021-06-07 23:12:52'),
-(22, 42, 103, 19, '350', 1, '2021-06-07 23:12:30', '2021-06-07 23:12:57'),
-(23, 43, 102, 19, '325', 1, '2021-06-08 11:40:35', '2021-06-08 11:40:59'),
-(25, 48, 104, 19, '310', 1, '2021-06-08 21:55:22', '2021-06-08 21:55:43');
 
 -- --------------------------------------------------------
 
@@ -218,20 +176,6 @@ CREATE TABLE `tb_validate` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tb_validate`
---
-
-INSERT INTO `tb_validate` (`id_validate`, `message`, `id_properties`, `id_agent`, `id_customer`, `status_validate`, `created_at`, `updated_at`) VALUES
-(41, 'Berhasil diterima !', 100, 19, NULL, 3, '2021-06-07 22:56:27', '2021-06-07 23:12:52'),
-(42, 'Berhasil diterima !', 103, 19, NULL, 3, '2021-06-07 22:56:40', '2021-06-07 23:12:57'),
-(43, 'Berhasil diterima !', 102, 19, NULL, 3, '2021-06-07 22:56:44', '2021-06-08 11:40:59'),
-(44, 'Berhasil diterima !', 103, 19, 20, 6, '2021-06-07 23:13:16', '2021-06-07 23:14:49'),
-(45, 'Berhasil diterima !', 100, 19, 20, 6, '2021-06-07 23:13:22', '2021-06-07 23:14:54'),
-(46, 'Berhasil diterima !', 102, 19, 21, 6, '2021-06-08 11:41:28', '2021-06-08 11:41:59'),
-(48, 'Berhasil diterima !', 104, 19, NULL, 3, '2021-06-08 21:55:03', '2021-06-08 21:55:43'),
-(49, 'Berhasil diterima !', 104, 19, 20, 6, '2021-06-08 22:00:02', '2021-06-08 22:01:37');
 
 -- --------------------------------------------------------
 
@@ -337,7 +281,7 @@ ALTER TABLE `tb_management_customer`
 -- AUTO_INCREMENT for table `tb_properties`
 --
 ALTER TABLE `tb_properties`
-  MODIFY `id_properties` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id_properties` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- AUTO_INCREMENT for table `tb_transaction`
