@@ -129,11 +129,14 @@
           $query2 = mysqli_query($conn,$perintah2);
           $user = mysqli_fetch_array($query2);
 
+          $namaowner = $user['name'];
           $level = $user['level'];
           
           if ($level == 3) {
             $perintah = "SELECT * FROM tb_properties WHERE id_properties = '$id'";
-          } else {
+          } else if ($level == 2) {
+            $perintah = "SELECT * FROM tb_properties WHERE id_properties = '$id' AND owner = '$namaowner'";
+          }else {
             $perintah = "SELECT * FROM tb_management_agent AS management INNER JOIN tb_properties AS properties ON management.id_properties_management_agent = properties.id_properties INNER JOIN tb_users AS users ON management.id_agent_management_agent = users.id_users WHERE id_properties_management_agent = '$id'";
           }
 
@@ -147,8 +150,10 @@
             }
 
             if ($level == 3) {
-            $title = "Owner : ".$data['owner'];
-            } else {
+              $title = "Owner : ".$data['owner'];
+            } else if ($level == 2) {
+              $title = "Owner : ".$data['owner'];
+            }else {
               $title = "Agent : ".$data['name'];
             }
           ?>

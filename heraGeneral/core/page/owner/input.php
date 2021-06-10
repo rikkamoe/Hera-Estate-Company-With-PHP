@@ -12,7 +12,7 @@
       $ownerp = $_POST['owner'];
       $tahunp = $_POST['tahun'];
 
-      if (empty($namap) || empty($tipep) || empty($lokasip) || empty($tidurp) || empty($mandip) || empty($kolamp) || empty($deskripsip) || empty($dokumenp) || empty($ownerp) || empty($tahunp))
+      if (empty($namap) || empty($tipep) || empty($lokasip) || empty($tidurp) || empty($deskripsip) || empty($dokumenp) || empty($ownerp) || empty($tahunp))
       {
         echo " <script>alert('Gagal, Data tidak lengkap'); </script> ";
       }
@@ -20,14 +20,15 @@
         $ekstensi_diperbolehkan  = array('png','jpg');
         $fotop = $_FILES['foto']['name'];
         $x = explode('.', $fotop);
+        $randomname = round(microtime(true)) . '.' . end($x); 
         $ekstensi = strtolower(end($x));
         $ukuran = $_FILES['foto']['size'];
         $file_tmp = $_FILES['foto']['tmp_name'];
         
         if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
           if($ukuran < 2044070){      
-            move_uploaded_file($file_tmp, '../public/img/'.$fotop);
-            $perintah = "INSERT INTO tb_properties (name_properties, type, bedroom, toilet, pool, location, description, document, production_year, owner, img) VALUES ('$namap','$tipep','$tidurp','$mandip','$kolamp','$lokasip','$deskripsip','$dokumenp','$tahunp','$ownerp','$fotop')";
+            move_uploaded_file($file_tmp, '../public/img/'.$randomname);
+            $perintah = "INSERT INTO tb_properties (name_properties, type, bedroom, toilet, pool, location, description, document, production_year, owner, img) VALUES ('$namap','$tipep','$tidurp','$mandip','$kolamp','$lokasip','$deskripsip','$dokumenp','$tahunp','$ownerp','$randomname')";
             $query = mysqli_query($conn,$perintah);
             if($query){
               echo " <script>alert('Berhasil, Memasukkan Properti'); </script> ";
