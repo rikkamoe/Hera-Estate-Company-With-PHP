@@ -73,7 +73,7 @@
                       </a>
                     </li>
                     <li class="nav-item ">
-                      <a href="?page=about&aksi=content" class="nav-link">
+                      <a href="?page=agent&aksi=management" class="nav-link">
                         Management Agent
                       </a>
                     </li>
@@ -81,12 +81,12 @@
                 }else if ($level == 3){
                   echo '
                     <li class="nav-item ">
-                      <a href="?page=about&aksi=content" class="nav-link">
+                      <a href="?page=owner&aksi=management" class="nav-link">
                         Management Owner
                       </a>
                     </li>
                     <li class="nav-item ">
-                      <a href="?page=about&aksi=content" class="nav-link">
+                      <a href="?page=owner&aksi=input" class="nav-link">
                         Input Properti
                       </a>
                     </li>
@@ -99,7 +99,7 @@
                       </a>
                     </li>
                     <li class="nav-item ">
-                      <a href="?page=about&aksi=content" class="nav-link">
+                      <a href="?page=customer&aksi=management" class="nav-link">
                         Management Customer
                       </a>
                     </li>
