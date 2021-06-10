@@ -75,7 +75,7 @@
                       </a>
                     </li>
                     <li class="nav-item ">
-                      <a href="?page=about&aksi=content" class="nav-link">
+                      <a href="?page=customer&aksi=management" class="nav-link">
                         Management Customer
                       </a>
                     </li>
