@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2021 at 09:34 AM
+-- Generation Time: Jun 11, 2021 at 03:20 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -74,6 +74,13 @@ CREATE TABLE `tb_management_agent` (
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tb_management_agent`
+--
+
+INSERT INTO `tb_management_agent` (`id_management_agent`, `id_agent_management_agent`, `id_properties_management_agent`, `status_management_agent`, `created_at`, `updated_at`) VALUES
+(1, 19, 1, 1, '2021-06-10 20:34:06', '2021-06-10 20:34:06');
+
 -- --------------------------------------------------------
 
 --
@@ -99,9 +106,9 @@ CREATE TABLE `tb_properties` (
   `id_properties` bigint(20) UNSIGNED NOT NULL,
   `name_properties` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `bedroom` int(11) NOT NULL,
-  `toilet` int(11) NOT NULL,
-  `pool` int(11) NOT NULL,
+  `bedroom` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `toilet` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pool` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
   `location` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `document` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -113,6 +120,13 @@ CREATE TABLE `tb_properties` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tb_properties`
+--
+
+INSERT INTO `tb_properties` (`id_properties`, `name_properties`, `type`, `bedroom`, `toilet`, `pool`, `location`, `description`, `document`, `production_year`, `owner`, `img`, `price`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Kondomium', 'Minimalis Class (20 x 10)', '2', '2', '1', 'seoul', 'aaaaaaaaaa', 'aaaaaaaaa', '2015', 'I Gede Bayu Widiastika', '1623328361.jpg', '320', '2', '2021-06-10 12:32:40', '2021-06-10 12:34:06');
 
 -- --------------------------------------------------------
 
@@ -130,6 +144,13 @@ CREATE TABLE `tb_transaction` (
   `created_at_transaction` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_transaction`
+--
+
+INSERT INTO `tb_transaction` (`id_transaction`, `id_validate`, `id_properties`, `id_agent`, `price_transaction`, `status_transaction`, `created_at_transaction`, `updated_at`) VALUES
+(1, 1, 1, 19, '320', 1, '2021-06-10 20:33:41', '2021-06-10 20:34:06');
 
 -- --------------------------------------------------------
 
@@ -176,6 +197,13 @@ CREATE TABLE `tb_validate` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_validate`
+--
+
+INSERT INTO `tb_validate` (`id_validate`, `message`, `id_properties`, `id_agent`, `id_customer`, `status_validate`, `created_at`, `updated_at`) VALUES
+(1, 'Berhasil diterima !', 1, 19, NULL, 3, '2021-06-10 20:33:11', '2021-06-10 20:34:06');
 
 -- --------------------------------------------------------
 
@@ -269,25 +297,25 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `tb_management_agent`
 --
 ALTER TABLE `tb_management_agent`
-  MODIFY `id_management_agent` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_management_agent` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_management_customer`
 --
 ALTER TABLE `tb_management_customer`
-  MODIFY `id_management_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_management_customer` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tb_properties`
 --
 ALTER TABLE `tb_properties`
-  MODIFY `id_properties` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `id_properties` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_transaction`
 --
 ALTER TABLE `tb_transaction`
-  MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_users`
@@ -299,7 +327,7 @@ ALTER TABLE `tb_users`
 -- AUTO_INCREMENT for table `tb_validate`
 --
 ALTER TABLE `tb_validate`
-  MODIFY `id_validate` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_validate` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
