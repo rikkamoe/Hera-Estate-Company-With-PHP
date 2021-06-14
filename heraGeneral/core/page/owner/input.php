@@ -25,7 +25,7 @@
         $ukuran = $_FILES['foto']['size'];
         $file_tmp = $_FILES['foto']['tmp_name'];
         
-        if(in_array($ekstensi, $ekstensi_diperbolehkan) == true){
+        if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
           if($ukuran < 2044070){      
             move_uploaded_file($file_tmp, '../public/img/'.$randomname);
             $perintah = "INSERT INTO tb_properties (name_properties, type, bedroom, toilet, pool, location, description, document, production_year, owner, img) VALUES ('$namap','$tipep','$tidurp','$mandip','$kolamp','$lokasip','$deskripsip','$dokumenp','$tahunp','$ownerp','$randomname')";
