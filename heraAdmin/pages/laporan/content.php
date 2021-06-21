@@ -50,19 +50,21 @@
                   <thead>
                     <tr>
                       <th>Nama Agent</th>
+                      <th>Jumlah Properti</th>
                       <th>Total Penjualan</th>
                       <th>Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php
-                      $perintah2 = "SELECT *, SUM(price_transaction) AS total FROM tb_transaction INNER JOIN tb_users ON tb_transaction.id_agent = tb_users.id_users WHERE status_transaction > 0 GROUP BY id_agent";
+                      $perintah2 = "SELECT *, SUM(price_transaction) AS total, COUNT(id_agent) AS jumlah_properties FROM tb_transaction INNER JOIN tb_users ON tb_transaction.id_agent = tb_users.id_users WHERE status_transaction > 0 GROUP BY id_agent";
                       $query2 = mysqli_query($conn, $perintah2);
                       while ($data2 = mysqli_fetch_array($query2)) {
 
                     ?>
                     <tr>
                       <td><?php echo $data2['name']; ?></td>
+                      <td><?php echo $data2['jumlah_properties']; ?></td>
                       <td>$<?php echo $data2['total']; ?></td>
                       <td>
                         <a href="?page=laporan&aksi=detail2&id=<?php echo $data2['id_agent']?>" class="btn btn-success"><i class="fa fa-eye"></i></a>
