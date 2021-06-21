@@ -50,23 +50,24 @@
                   <thead>
                     <tr>
                       <th>Nama Agent</th>
-                      <th>Jumlah Keseluruhan Properti</th>
+                      <th>Total Penjualan</th>
                       <th>Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php
-                      $perintah2 = "SELECT *,COUNT(id_agent_management_agent) AS jumlah_properties FROM tb_management_agent INNER JOIN tb_users ON tb_management_agent.id_agent_management_agent = tb_users.id_users WHERE status_management_agent > 0 GROUP BY id_agent_management_agent";
+                      $perintah2 = "SELECT *, SUM(price_transaction) AS total FROM tb_transaction INNER JOIN tb_users ON tb_transaction.id_agent = tb_users.id_users WHERE status_transaction > 0 GROUP BY id_agent";
                       $query2 = mysqli_query($conn, $perintah2);
                       while ($data2 = mysqli_fetch_array($query2)) {
+
                     ?>
                     <tr>
                       <td><?php echo $data2['name']; ?></td>
-                      <td><?php echo $data2['jumlah_properties']; ?></td>
+                      <td>$<?php echo $data2['total']; ?></td>
                       <td>
-                        <a href="?page=laporan&aksi=detail2&id=<?php echo $data2['id_agent_management_agent']?>" class="btn btn-success"><i class="fa fa-eye"></i></a>
-                        <button type="button" data-toggle="modal" data-target="#myModal<?php echo $data2['id_agent_management_agent']; ?>" class="btn btn-info"><i class="fa fa-edit"></i></button>
-                        <div id="myModal<?php echo $data2['id_agent_management_agent']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+                        <a href="?page=laporan&aksi=detail2&id=<?php echo $data2['id_agent']?>" class="btn btn-success"><i class="fa fa-eye"></i></a>
+                        <button type="button" data-toggle="modal" data-target="#myModal<?php echo $data2['id_agent']; ?>" class="btn btn-info"><i class="fa fa-edit"></i></button>
+                        <div id="myModal<?php echo $data2['id_agent']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
                           <div role="document" class="modal-dialog">
                             <div class="modal-content">
                               <div class="modal-header">
@@ -88,7 +89,7 @@
                                     </select>
                                   </div>
                                   <div class="form-group">
-                                    <input type="text" name="id" value="<?php echo $data2['id_agent_management_agent']; ?>" hidden>
+                                    <input type="text" name="id" value="<?php echo $data2['id_agent']; ?>" hidden>
                                   </div>
                                   <div class="form-group">       
                                     <button type="submit" class="btn btn-success">Cari Laporan</button>
@@ -156,3 +157,5 @@
     </div>
   </footer>
 </div>
+
+<!--  -->
