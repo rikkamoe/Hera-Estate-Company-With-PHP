@@ -172,7 +172,7 @@
                     if ($level == 3) {
                       $perintah = "SELECT * FROM tb_properties WHERE location = '$id' AND status = '1' AND type = 'Minimalis Class (20 x 10)'";  
                     } else {
-                      $perintah = "SELECT * FROM tb_properties WHERE location = '$id' AND status = '2' AND type = 'Minimalis Class (20 x 10)'";
+                      $perintah = "SELECT * FROM tb_properties WHERE location = '$id' AND status = '2' AND type = 'Minimalis Class (20 x 10)' ORDER BY price DESC";
                     }
                     $query = mysqli_query($conn,$perintah);
                     while($data = mysqli_fetch_array($query))
@@ -199,8 +199,17 @@
                               <h4 class="card-title mb-0">
                                 <?php echo $data['name_properties'] ?>
                               </h4>
+
                               
                             </div>
+                            <div class="col-auto">
+                      
+                              <p class="mb-0 text-sm text-muted">
+                                $<?php echo $data['price'] ?>
+                              </p>
+
+                            </div>
+
                           </div> <!-- / .row -->
 
                           <!-- Text -->
@@ -248,7 +257,7 @@
                     if ($level == 3) {
                       $perintah = "SELECT * FROM tb_properties WHERE location = '$id' AND status = '1' AND type = 'Classic Class (40 x 10)'";  
                     } else {
-                      $perintah = "SELECT * FROM tb_properties WHERE location = '$id' AND status = '2' AND type = 'Classic Class (40 x 10)'";
+                      $perintah = "SELECT * FROM tb_properties WHERE location = '$id' AND status = '2' AND type = 'Classic Class (40 x 10)' ORDER BY price DESC";
                     }
                     $query = mysqli_query($conn,$perintah);
                     while($data = mysqli_fetch_array($query))
@@ -276,6 +285,13 @@
                                 <?php echo $data['name_properties'] ?>
                               </h4>
                               
+                            </div>
+                            <div class="col-auto">
+                      
+                              <p class="mb-0 text-sm text-muted">
+                                $<?php echo $data['price'] ?>
+                              </p>
+
                             </div>
                           </div> <!-- / .row -->
 
@@ -324,7 +340,7 @@
                     if ($level == 3) {
                       $perintah = "SELECT * FROM tb_properties WHERE location = '$id' AND status = '1' AND type = 'Medium Class (50 x 20)'";  
                     } else {
-                      $perintah = "SELECT * FROM tb_properties WHERE location = '$id' AND status = '2' AND type = 'Medium Class (50 x 20)'";
+                      $perintah = "SELECT * FROM tb_properties WHERE location = '$id' AND status = '2' AND type = 'Medium Class (50 x 20)' ORDER BY price DESC";
                     }
                     $query = mysqli_query($conn,$perintah);
                     while($data = mysqli_fetch_array($query))
@@ -352,6 +368,13 @@
                                 <?php echo $data['name_properties'] ?>
                               </h4>
                               
+                            </div>
+                            <div class="col-auto">
+                      
+                              <p class="mb-0 text-sm text-muted">
+                                $<?php echo $data['price'] ?>
+                              </p>
+
                             </div>
                           </div> <!-- / .row -->
 
@@ -400,7 +423,7 @@
                     if ($level == 3) {
                       $perintah = "SELECT * FROM tb_properties WHERE location = '$id' AND status = '1' AND type = 'High Class (70 x 30)'";  
                     } else {
-                      $perintah = "SELECT * FROM tb_properties WHERE location = '$id' AND status = '2' AND type = 'High Class (70 x 30)'";
+                      $perintah = "SELECT * FROM tb_properties WHERE location = '$id' AND status = '2' AND type = 'High Class (70 x 30)' ORDER BY price DESC";
                     }
                     $query = mysqli_query($conn,$perintah);
                     while($data = mysqli_fetch_array($query))
@@ -428,6 +451,13 @@
                                 <?php echo $data['name_properties'] ?>
                               </h4>
                               
+                            </div>
+                            <div class="col-auto">
+                      
+                              <p class="mb-0 text-sm text-muted">
+                                $<?php echo $data['price'] ?>
+                              </p>
+
                             </div>
                           </div> <!-- / .row -->
 
@@ -476,7 +506,7 @@
                     if ($level == 3) {
                       $perintah = "SELECT * FROM tb_properties WHERE location = '$id' AND status = '1' AND type = 'Premium Class (100 x 60)'";  
                     } else {
-                      $perintah = "SELECT * FROM tb_properties WHERE location = '$id' AND status = '2' AND type = 'Premium Class (100 x 60)'";
+                      $perintah = "SELECT * FROM tb_properties WHERE location = '$id' AND status = '2' AND type = 'Premium Class (100 x 60)' ORDER BY price DESC";
                     }
                     $query = mysqli_query($conn,$perintah);
                     while($data = mysqli_fetch_array($query))
@@ -504,6 +534,13 @@
                                 <?php echo $data['name_properties'] ?>
                               </h4>
                               
+                            </div>
+                            <div class="col-auto">
+                      
+                              <p class="mb-0 text-sm text-muted">
+                                $<?php echo $data['price'] ?>
+                              </p>
+
                             </div>
                           </div> <!-- / .row -->
 
@@ -552,7 +589,7 @@
                     if ($level == 3) {
                       $perintah = "SELECT * FROM tb_properties WHERE location = '$id' AND status = '1' AND type = 'Luxury Class (125 x 100)'";  
                     } else {
-                      $perintah = "SELECT * FROM tb_properties WHERE location = '$id' AND status = '2' AND type = 'Luxury Class (125 x 100)'";
+                      $perintah = "SELECT * FROM tb_properties WHERE location = '$id' AND status = '2' AND type = 'Luxury Class (125 x 100)' ORDER BY price DESC";
                     }
                     $query = mysqli_query($conn,$perintah);
                     while($data = mysqli_fetch_array($query))
@@ -580,6 +617,13 @@
                                 <?php echo $data['name_properties'] ?>
                               </h4>
                               
+                            </div>
+                            <div class="col-auto">
+                      
+                              <p class="mb-0 text-sm text-muted">
+                                $<?php echo $data['price'] ?>
+                              </p>
+
                             </div>
                           </div> <!-- / .row -->
 
@@ -628,7 +672,7 @@
                     if ($level == 3) {
                       $perintah = "SELECT * FROM tb_properties WHERE location = '$id' AND status = '1' AND type = 'Super Premium Suite (150 x 170)'";  
                     } else {
-                      $perintah = "SELECT * FROM tb_properties WHERE location = '$id' AND status = '2' AND type = 'Super Premium Suite (150 x 170)'";
+                      $perintah = "SELECT * FROM tb_properties WHERE location = '$id' AND status = '2' AND type = 'Super Premium Suite (150 x 170)' ORDER BY price DESC";
                     }
                     $query = mysqli_query($conn,$perintah);
                     while($data = mysqli_fetch_array($query))
@@ -656,6 +700,13 @@
                                 <?php echo $data['name_properties'] ?>
                               </h4>
                               
+                            </div>
+                            <div class="col-auto">
+                      
+                              <p class="mb-0 text-sm text-muted">
+                                $<?php echo $data['price'] ?>
+                              </p>
+
                             </div>
                           </div> <!-- / .row -->
 
